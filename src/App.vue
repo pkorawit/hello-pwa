@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
+  <v-app>
+    <AppBar />
 
+    <v-main class="pa-3">
+      <router-view></router-view>
+      <v-fab-transition>
+        <v-btn v-show="true" color="pink mb-14" fab dark small fixed right bottom>
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </v-fab-transition>
+    </v-main>
+
+    <ButtomNavigation />
+  </v-app>
+</template>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppBar from "./components/AppBar.vue";
+import ButtomNavigation from "./components/ButtomNavigation.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: "App",
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    ButtomNavigation,
+    AppBar,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
