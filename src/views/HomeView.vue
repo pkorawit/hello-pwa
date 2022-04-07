@@ -18,7 +18,7 @@ export default {
   },
 
   mounted() {
-    this.$db.collection("post")      
+    this.$db.collection("posts")      
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {

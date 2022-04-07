@@ -18,9 +18,9 @@
       </v-btn>
 
       <v-btn>
-        <span>Nearby</span>
+        <span>Your Listing</span>
 
-        <v-icon>mdi-map-marker</v-icon>
+        <v-icon>mdi-clipboard-list-outline</v-icon>
       </v-btn>
        <v-btn to="/about">
         <span>About</span>

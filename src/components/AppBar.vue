@@ -1,38 +1,34 @@
 <template>
   <div>
-    <v-app-bar
-      color="indigo"
-      dense
-      dark
-    >
-      <v-app-bar-nav-icon><v-icon>mdi-widgets</v-icon></v-app-bar-nav-icon> PWA Demo
+    <v-app-bar color="indigo" dense dark>
+      <v-app-bar-nav-icon><v-icon>mdi-home-city-outline</v-icon></v-app-bar-nav-icon> InstaHouse
 
       <v-spacer></v-spacer>
 
-      <v-menu
-        left
-        bottom
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            v-on="on"
-          >
-            <v-icon>mdi-dots-vertical</v-icon>
+      <v-menu left bottom>
+        <template v-slot:activator="{ attrs }">
+          <v-btn icon v-bind="attrs" @click="signOut">
+            <v-icon>mdi-logout-variant</v-icon>
           </v-btn>
         </template>
-
-        <v-list>
-          <v-list-item
-            v-for="n in 5"
-            :key="n"
-            @click="() => {}"
-          >
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
       </v-menu>
     </v-app-bar>
   </div>
 </template>
+<script>
+export default {
+  methods: {
+    signOut() {
+      this.$firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("/signin");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
+</script>

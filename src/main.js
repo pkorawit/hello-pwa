@@ -7,7 +7,8 @@ import router from './router'
 // Import the functions you need from the SDKs you need
 import firebase from "firebase/app";
 import "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
+import "firebase/auth";
+import "firebase/storage";
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,8 +27,10 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+const auth = firebase.auth();
 Vue.prototype.$firebase = firebase;
 Vue.prototype.$db = db;
+Vue.prototype.$auth = auth;
 console.log("Firebase initialized ... done");
 
 Vue.config.productionTip = false
